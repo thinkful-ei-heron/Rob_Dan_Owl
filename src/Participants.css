@@ -1,0 +1,53 @@
+.participant {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.imageContainer {
+  width: 50px;
+  height: 50px;
+}
+
+.imageContainer img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50px;
+  width: auto;
+}
+
+.userInfo p {
+  margin: 0;
+  padding: 0;
+}
+
+.userName {
+  font-weight: 600;
+}
+
+.stageInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  line-height: 25px;
+}
+
+.greenCircle {
+  width: 10px;
+  height: 10px;
+  margin-right: 15px;
+  background-color: greenYellow;
+  border-radius: 50%;
+}
+
+.boot {
+  color: blue;
+}
