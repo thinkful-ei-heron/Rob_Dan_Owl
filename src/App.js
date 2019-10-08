@@ -8,8 +8,17 @@ function App(props) {
   return (
     <main className="App">
       {props.participants.map(user => {
-        return <Participants imgURL={user.avatar} name={user.name} inSession={user.inSession} />;
+        return (
+          <Participants
+            imgURL={user.avatar}
+            name={user.name}
+            inSession={user.inSession}
+            onStage={user.onStage}
+          />
+        );
       })}
+
+      <Chat chatEvents={props.chatEvents} users={props.participants} />
     </main>
   );
 }

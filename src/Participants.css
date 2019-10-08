@@ -48,6 +48,14 @@
   border-radius: 50%;
 }
 
+.greyCircle {
+  width: 10px;
+  height: 10px;
+  margin-right: 15px;
+  background-color: grey;
+  border-radius: 50%;
+}
+
 .boot {
   color: blue;
 }
