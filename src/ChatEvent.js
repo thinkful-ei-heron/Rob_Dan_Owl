@@ -1,6 +1,53 @@
 import React from 'react';
 
 export default function ChatEvent(props) {
+  const eventMsg = (userName, type) => {
+    const typeMsg = {
+      'thumbs-up': (
+        <p>
+          <span>{userName}</span> gave a thumbs up
+        </p>
+      ),
+      'thumbs-down': (
+        <p>
+          <span>{userName}</span> gave a thumbs down
+        </p>
+      ),
+      'raise-hand': (
+        <p>
+          <span>{userName}</span> raised their handp
+        </p>
+      ),
+      clap: (
+        <p>
+          <span>{userName}</span> clapped
+        </p>
+      ),
+      join: (
+        <p>
+          <span>{userName}</span> joined
+        </p>
+      ),
+      'join-stage': (
+        <p>
+          <span>{userName}</span> joined the stage
+        </p>
+      ),
+      leave: (
+        <p>
+          <span>{userName}</span> left
+        </p>
+      ),
+      'leave-stage': (
+        <p>
+          <span>{userName}</span> left the stage
+        </p>
+      )
+    };
+
+    return typeMsg[type];
+  };
+
   console.log(props);
   let jsx = <p>Looks like there was an error</p>;
   if (props.type === 'message') {
@@ -13,70 +60,8 @@ export default function ChatEvent(props) {
         <p className="message">{props.message}</p>
       </div>
     );
-  } else if (props.type === 'thumbs-up') {
-    jsx = (
-      <div className="chatEvent">
-        <p className="userAction">
-          <span>{props.user}</span> gave a thumbs up
-        </p>
-      </div>
-    );
-  } else if (props.type === 'thumbs-down') {
-    jsx = (
-      <div className="chatEvent">
-        <p className="userAction">
-          <span>{props.user}</span> gave a thumbs down
-        </p>
-      </div>
-    );
-  } else if (props.type === 'raise-hand') {
-    jsx = (
-      <div className="chatEvent">
-        <p className="userAction">
-          <span>{props.user}</span> raised their hand
-        </p>
-      </div>
-    );
-  } else if (props.type === 'clap') {
-    jsx = (
-      <div className="chatEvent">
-        <p className="userAction">
-          <span>{props.user}</span> clapped
-        </p>
-      </div>
-    );
-  } else if (props.type === 'join') {
-    jsx = (
-      <div className="chatEvent">
-        <p className="userAction">
-          <span>{props.user}</span> joined
-        </p>
-      </div>
-    );
-  } else if (props.type === 'join-stage') {
-    jsx = (
-      <div className="chatEvent">
-        <p className="userAction">
-          <span>{props.user}</span> joined the stage
-        </p>
-      </div>
-    );
-  } else if (props.type === 'leave') {
-    jsx = (
-      <div className="chatEvent">
-        <p className="userAction">
-          <span>{props.user}</span> left
-        </p>
-      </div>
-    );
-  } else if (props.type === 'leave-stage') {
-    jsx = (
-      <div className="chatEvent">
-        <p className="userAction">
-          <span>{props.user}</span> left the stage
-        </p>
-      </div>
-    );
+  } else {
+    jsx = <div className="chatEvent">{eventMsg(props.user, props.type)}</div>;
   }
   return jsx;
 }
